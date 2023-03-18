@@ -51,7 +51,7 @@ else:
     os.makedirs(os.path.join("random_quiz_generator\\answer_sheet"))
 
 for i in range(1,total_number+1):
-    if not os.path.basename(os.getcwd())=='random_quiz_generator'
+    if not os.path.basename(os.getcwd())=='random_quiz_generator':
         ques_path = path+'\\random_quiz_generator\\question_paper'
         os.chdir(os.path.join(ques_path))
         f = open(f'Question paper - {i}.txt','w')
