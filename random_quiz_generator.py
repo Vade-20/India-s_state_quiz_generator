@@ -35,6 +35,9 @@ multiple = [i for i in state.values()]
 keys = [i for i in state.keys() if i is not None]
 option = ['A','B','C','D']
 path = os.getcwd()
+if 'random_quiz_generator' not in os.listdir(path):
+    os.makedirs(os.path.join('random_quiz_generator'))
+    
 if 'question_paper'  in os.listdir(os.path.abspath("random_quiz_generator")):
     shutil.rmtree(os.path.join("random_quiz_generator\\question_paper"))
     os.makedirs(os.path.join('random_quiz_generator\\question_paper'))
@@ -48,12 +51,20 @@ else:
     os.makedirs(os.path.join("random_quiz_generator\\answer_sheet"))
 
 for i in range(1,total_number+1):
-    ques_path = path+'\\random_quiz_generator\\question_paper'
-    os.chdir(os.path.join(ques_path))
-    f = open(f'Question paper - {i}.txt','w')
-    ans_path = path+'\\random_quiz_generator\\answer_sheet'
-    os.chdir(os.path.join(ans_path))
-    g = open(f'Answer paper-{i}.txt','w')
+    if not os.path.basename(os.getcwd())=='random_quiz_generator'
+        ques_path = path+'\\random_quiz_generator\\question_paper'
+        os.chdir(os.path.join(ques_path))
+        f = open(f'Question paper - {i}.txt','w')
+        ans_path = path+'\\random_quiz_generator\\answer_sheet'
+        os.chdir(os.path.join(ans_path))
+        g = open(f'Answer paper-{i}.txt','w')
+    else:
+        ques_path = path+'\\question_paper'
+        os.chdir(os.path.join(ques_path))
+        f = open(f'Question paper - {i}.txt','w')
+        ans_path = path+'\\answer_sheet'
+        os.chdir(os.path.join(ans_path))
+        g = open(f'Answer paper-{i}.txt','w')
     f.write('\t\t Question on India States and capital\n\n'.upper())
     f.writelines(['Name-\n','Roll No.-\n','Class-\n','Section-\n\n'])
     random.shuffle(keys)
