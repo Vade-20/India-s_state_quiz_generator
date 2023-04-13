@@ -1,15 +1,14 @@
 import os,random,send2trash
 
 # This script will create n number of question paper with m number of question in each of them.
-# Enter the range wihin which you want to ask question from them 
-# Eg a range of 4-12 will ask multiple question between 3 and 13
+# Enter the number below which you want to ask question from them 
+# Eg 12 will ask multiple question between 1 and 13
 
-paper_no = int(input("Enter the number of question paper you want to create :"))
-ques_no = int(input('Enter the number of question in each question paper :'))
-lower_no = int(input("Enter the lower range :"))
-high_no =  int(input("Enter the higher range :"))
+paper_no = int(input("Enter the number of question papers you want to create :"))
+ques_no = int(input('Enter the number of questions in each question paper :'))
+high_no =  int(input("Enter the nnumber below which question will be prepared:"))
 
-num_list = [i for i in range(lower_no,high_no+1)]
+num_list = [i for i in range(1,high_no+1)]
 path = os.getcwd()
 
 if 'random_quiz_generator' not in os.listdir(path):
